@@ -43,6 +43,7 @@ class User(AbstractBaseUser):
     email = models.EmailField(max_length=254, unique=True)
     display_name = models.CharField(max_length=100)
     username = models.CharField(max_length=100, unique=True)
+    avatar = models.ImageField(upload_to='avatars', blank=True, null=True)
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)

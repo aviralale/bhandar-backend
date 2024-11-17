@@ -16,6 +16,7 @@ DEBUG = env.bool("DEBUG", default=False)
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -90,6 +91,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 INSTALLED_APPS += [
     'accounts',
+    'storage',
     'rest_framework',
     'djoser',
 ]
@@ -152,6 +154,19 @@ DJOSER = {
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_HEADERS = env.list("CORS_ALLOW_HEADERS")
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+CORS_ALLOW_CREDENTIALS = True
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
 
 # *USER MODEL
 AUTH_USER_MODEL = "accounts.User"
